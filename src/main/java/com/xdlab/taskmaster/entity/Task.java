@@ -53,7 +53,7 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
 

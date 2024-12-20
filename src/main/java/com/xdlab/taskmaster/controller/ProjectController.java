@@ -24,7 +24,7 @@ public class ProjectController {
         return projectService.getAllProjects();
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<Project> getProjectById(Long id){
         Optional<Project> project = projectService.getProjectById(id);
 
