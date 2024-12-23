@@ -25,7 +25,7 @@ public class TaskController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Task> getTaskById(Long id){
+    public ResponseEntity<Task> getTaskById(@PathVariable Long id){
         Optional<Task> task = taskService.getTaskById(id);
 
         if (task.isPresent()){

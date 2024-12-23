@@ -1,5 +1,6 @@
 package com.xdlab.taskmaster.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class Task {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
+    @JsonBackReference
     //@JsonBackReference
     private Project project;
 }
