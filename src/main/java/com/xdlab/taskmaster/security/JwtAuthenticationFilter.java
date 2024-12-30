@@ -21,7 +21,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    final JwtService jwtService;
+    final public JwtService jwtService;
     final private UserDetailsService userDetailsService;
     @Override
     protected void doFilterInternal(
@@ -32,7 +32,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String autHeader = request.getHeader("Authorization");
         final String jwt;
         final String userEmail;
-        if(autHeader == null || !autHeader.startsWith("Bearer")){
+
+        if(autHeader == null || !autHeader.startsWith("Bearer ")){
             filterChain.doFilter(request, response);
             return;
         }
